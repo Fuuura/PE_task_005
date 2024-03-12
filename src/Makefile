@@ -15,4 +15,4 @@ house.o:
 
 clean:
 	rm -rf *.o
-	rm -rf ../bin/house
+	rm -rf ../bin/h*
