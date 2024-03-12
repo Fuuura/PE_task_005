@@ -1,6 +1,6 @@
 #include "house.h"
 
-int main() {
+int main(void) {
     int width = 0, length = 0, height = 0, money = 0;
     input_data(&width, &length, &height, &money);
     calculating(width, length, height, money);
