@@ -37,12 +37,17 @@ void input_data(FILE *file) {
     double current_distance;
     struct cities *city = malloc((cities_count + 1) * sizeof(struct cities));
     while (!feof(file)) {
-        fscanf(file, "%s %d %d", city[cities_count].name, &city[cities_count].coordinates_x,
+        fscanf(file, "%50s %d %d", city[cities_count].name, &city[cities_count].coordinates_x,
                &city[cities_count].coordinates_y);
         city[cities_count].stop = 0;
         if (strcmp(city[cities_count].name, "\0")) {
             cities_count++;
-            city = realloc(city, (cities_count + 1) * sizeof(struct cities));
+            // city = realloc(city, (cities_count + 1) * sizeof(struct cities));
+            struct cities *tmp = realloc(city, (cities_count + 1) * sizeof(struct cities));
+            if (tmp == NULL)
+                free(city);
+            else
+                city = tmp;
         }
     }
     for (int i = 0; i < cities_count; i++) {
