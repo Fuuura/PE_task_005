@@ -34,7 +34,7 @@ void input_data(FILE *file) {
     int full_time = 0;
     int current_driving_time = 0;
     int time_between_cities = 0;
-    double current_distance = 0;
+    double current_distance;
     struct cities *city = malloc((cities_count + 1) * sizeof(struct cities));
     while (!feof(file)) {
         fscanf(file, "%s %d %d", city[cities_count].name, &city[cities_count].coordinates_x,
